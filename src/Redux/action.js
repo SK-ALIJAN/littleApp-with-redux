@@ -37,8 +37,20 @@ export const PostData = (NewObj) => (dispatch) => {
     });
 };
 
-export const AuthenticationByRequest = (LoginData) => (dispatch) => {
+export const UpdateData = (id, NewObj) => (dispatch) => {
+  dispatch({ type: PostdataRequest });
   axios
+    .patch(`${url}/${id}`, NewObj)
+    .then((res) => {
+      dispatch({ type: PostdataSuccess, payload: res.data });
+    })
+    .catch((err) => {
+      dispatch({ type: PostdatError, payload: err.message });
+    });
+};
+
+export const AuthenticationByRequest = (LoginData) => (dispatch) => {
+  return axios
     .post(`https://reqres.in/api/login`, LoginData)
     .then((res) => {
       dispatch({ type: Authentication, payload: res.token });

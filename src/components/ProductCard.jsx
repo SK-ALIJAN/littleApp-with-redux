@@ -1,16 +1,27 @@
 import React from "react";
+import { useSelector } from "react-redux";
+import { Link } from "react-router-dom";
 import { styled } from "styled-components";
 
-const ProductCard = ({ title, image, price, category, description }) => {
+const ProductCard = ({ title, image, price, category, description, id }) => {
+  let auth = useSelector((store) => store.AuthReducer.isAuth);
+ 
   return (
     <DIV>
-      <img src={image} alt={title} />
+      <Link to={`/view/${id}`}>
+        <img src={image} alt={title} />
+      </Link>
       <h3>{title}</h3>
       <div>
         <h4>{price}</h4>
         <h4>{category}</h4>
       </div>
       <p>{description}</p>
+      {auth && (
+        <button>
+          <Link to={`edit/${id}`}> Edit</Link>
+        </button>
+      )}
     </DIV>
   );
 };
@@ -32,5 +43,15 @@ let DIV = styled.div`
   div {
     display: flex;
     justify-content: space-between;
+  }
+  button {
+    background-color: teal;
+    border: 0;
+    padding: 7px 20px;
+    border-radius: 8px;
+  }
+  button a {
+    text-decoration: none;
+    color: white;
   }
 `;

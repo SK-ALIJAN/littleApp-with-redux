@@ -4,6 +4,8 @@ import Home from "../components/Home";
 import Login from "../components/Login";
 import Admin from "../components/Admin";
 import PrivateRouter from "./PrivateRouter";
+import ViewPage from "../components/ViewPage";
+import Edit from "../components/Edit";
 
 const MainRouter = () => {
   return (
@@ -15,6 +17,15 @@ const MainRouter = () => {
         element={
           <PrivateRouter>
             <Admin />
+          </PrivateRouter>
+        }
+      />
+      <Route path="/view/:id" element={<ViewPage/>} />
+      <Route
+        path="/edit/:id"
+        element={
+          <PrivateRouter>
+            <Edit />
           </PrivateRouter>
         }
       />

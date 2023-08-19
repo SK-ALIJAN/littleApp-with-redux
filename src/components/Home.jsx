@@ -1,12 +1,10 @@
 import React from "react";
-import Navbar from "./Navbar";
 import Sidebar from "./Sidebar";
 import Product from "./Product";
 import { styled } from "styled-components";
 const Home = () => {
   return (
     <div>
-      <Navbar />
       <WRAPPER>
         <div id="sidebar">
           <Sidebar />

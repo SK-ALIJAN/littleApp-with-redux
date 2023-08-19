@@ -4,7 +4,7 @@
       "id": 1,
       "title": "Fjallraven - Foldsack No. 1 Backpack, Fits 15 Laptops",
       "price": 109.95,
-      "description": "Your perfect pack for everyday use and walks in the forest. Stash your laptop (up to 15 inches) in the padded sleeve, your everyday",
+      "description": "Your perfect pack for everyday use and walks in the forest. the Stash your laptop (up to 15 inches) in the padded sleeve, your everyday",
       "category": "men",
       "image": "https://fakestoreapi.com/img/81fPKd-2AYL._AC_SL1500_.jpg"
     },
@@ -43,7 +43,7 @@
     {
       "id": 7,
       "title": "White Gold Plated Princess",
-      "price": 9.99,
+      "price": 10,
       "description": "Classic Created Wedding Engagement SolitEngagement, Wedding, Anniversary, Valentine's Day...",
       "category": "jewelery",
       "image": "https://fakestoreapi.com/img/71YAIFU48IL._AC_UL640_QL65_ML3_.jpg"
@@ -89,11 +89,11 @@
       "image": "https://fakestoreapi.com/img/61pHAEJ4NML._AC_UX679_.jpg"
     },
     {
-      "title": "jean",
+      "title": "Nice jeans here ",
       "category": "men",
-      "price": 700,
+      "price": 500,
       "image": "https://img.freepik.com/free-photo/jeans_1203-8093.jpg?size=626&ext=jpg&ga=GA1.1.747389772.1686806713&semt=sph",
-      "description": "men's best jean ever , buy it right now ",
+      "description": "grab it right now , otherwise you will miss it ",
       "id": 21
     }
   ]

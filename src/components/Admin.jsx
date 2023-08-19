@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import Navbar from "../components/Navbar";
 import { styled } from "styled-components";
 import { useDispatch } from "react-redux";
 import { PostData } from "../Redux/action";
@@ -27,8 +26,8 @@ const Admin = () => {
   };
 
   return (
-    <>
-      <Navbar />
+
+ 
       <DIV>
         <h3>Product Add</h3>
         <form onSubmit={handleSubmit}>
@@ -65,7 +64,7 @@ const Admin = () => {
           <button type="submit">Add Product</button>
         </form>
       </DIV>
-    </>
+
   );
 };
 

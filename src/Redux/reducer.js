@@ -7,6 +7,7 @@ import {
   PostdatError,
   PostdataRequest,
   PostdataSuccess,
+  updateData,
 } from "./actionType";
 
 let GetInitialState = {
@@ -60,6 +61,12 @@ export const PostReducer = (state = PostInitialState, { type, payload }) => {
 
     case PostdatError:
       return { state, isloading: false, isError: true, ErrorMessage: payload };
+
+    case updateData:
+      return {
+        ...state,
+        isloading: false,
+      };
 
     default:
       return state;

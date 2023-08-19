@@ -7,3 +7,5 @@ export const PostdataSuccess = "PostdataSuccess";
 export const PostdatError = "PostdataRError";
 export const Authentication = "Authentication";
 export const AuthenticationError = "AuthenticationError";
+
+export const updateData = "updateData";

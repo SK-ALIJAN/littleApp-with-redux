@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import { shallowEqual, useDispatch, useSelector } from "react-redux";
 import { styled } from "styled-components";
-import Navbar from "../components/Navbar";
 import { AuthenticationByRequest } from "../Redux/action";
+import { useLocation, useNavigate } from "react-router-dom";
 
 const Login = () => {
   let Auth = useSelector((store) => {
@@ -13,6 +13,8 @@ const Login = () => {
   }, shallowEqual);
 
   let dispatch = useDispatch();
+  let location = useLocation();
+  let navigate = useNavigate();
 
   let [data, setData] = useState({
     email: "",
@@ -27,36 +29,35 @@ const Login = () => {
 
   let handleSubmit = (e) => {
     e.preventDefault();
-    dispatch(AuthenticationByRequest(data));
+    dispatch(AuthenticationByRequest(data)).then(() => {
+      navigate(location.state);
+    });
   };
 
   return (
-    <>
-      <Navbar />
-      <WRAPPER Error={Auth.ErrorMessage} Auth={Auth.isAuth}>
-        <h3 className="Head">
-          {Auth.isAuth ? "Login Successfull" : "Login to Continue..."}
-        </h3>
-        {Auth.ErrorMessage ? <h3>{Auth.ErrorMessage}</h3> : ""}
-        <form onSubmit={handleSubmit}>
-          <input
-            type="email"
-            placeholder="Email here..."
-            name="email"
-            onChange={handleChange}
-            value={data.email}
-          />
-          <input
-            type="Password"
-            placeholder="Password here..."
-            name="password"
-            onChange={handleChange}
-            value={data.password}
-          />
-          <button>Click to Login </button>
-        </form>
-      </WRAPPER>{" "}
-    </>
+    <WRAPPER error={Auth.ErrorMessage} auth={Auth.isAuth}>
+      <h3 className="Head">
+        {Auth.isAuth ? "Login Successfull" : "Login to Continue..."}
+      </h3>
+      {Auth.ErrorMessage ? <h3>{Auth.ErrorMessage}</h3> : ""}
+      <form onSubmit={handleSubmit}>
+        <input
+          type="email"
+          placeholder="Email here..."
+          name="email"
+          onChange={handleChange}
+          value={data.email}
+        />
+        <input
+          type="Password"
+          placeholder="Password here..."
+          name="password"
+          onChange={handleChange}
+          value={data.password}
+        />
+        <button>Click to Login </button>
+      </form>
+    </WRAPPER>
   );
 };
 
@@ -77,7 +78,7 @@ let WRAPPER = styled.div`
     height: 2rem;
     border-radius: 5px;
     outline: none;
-    border-color: ${({ Error }) => (Error ? "red" : "")};
+    border-color: ${({ error }) => (error ? "red" : "")};
   }
   button {
     height: 2rem;
@@ -88,6 +89,6 @@ let WRAPPER = styled.div`
     cursor: pointer;
   }
   .Head {
-    color: ${({ Auth }) => (Auth ? "green" : "red")};
+    color: ${({ auth }) => (auth ? "green" : "red")};
   }
 `;

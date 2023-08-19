@@ -1,9 +1,10 @@
-import MainRouter from "./Router/MainRouter"
-
+import MainRouter from "./Router/MainRouter";
+import Navbar from "../src/components/Navbar";
 function App() {
   return (
     <div className="App">
-     <MainRouter/>
+      <Navbar />
+      <MainRouter />
     </div>
   );
 }
